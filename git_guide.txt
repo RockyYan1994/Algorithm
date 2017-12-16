@@ -42,3 +42,67 @@ This a simple guide about how to use Git
 6) 连接远程库(from remote)
   克隆一个库
 	git clone git@server-name:pat/repo-name.git
+
+7) 使用分支
+  查看分支
+	git branch
+  创建分支
+	git branch <name>
+  切换分支
+	git checkout <name>
+  创建+切换分支
+	git checkout -b <name>
+  合并分支到当前分支
+	git merge <name>
+  删除分支
+	git branch -d <name>
+  强行删除分支
+	git branch -D <name>
+  查看分支合并图
+	git log —-graph
+  Git无法自动合成时，必须首先解决冲突，然后再提交
+
+  合并分支时，加上—-no-ff可以使用普通模式合并，合并后的历史有分支，能看出曾经合并过，fast forward合并看不出来曾经合并过
+
+8) bug分支
+  每个bug都可以通过一个新的临时分支来修复，修复后，合并分支，然后将临时分支删除。
+  保存当前工作现场
+	git stash
+  进入指定分支 git checkout branchName
+  创建新分支。git checkout -b tempBranchName
+  修改
+  切换到指定分支 git checkout branchName
+  合并新修改内容 git merge —no-ff -m “content” tempBranchName
+  删除临时分支  git branch -d tempBranchName
+  回到原有分支
+  查看stash
+	git stash list
+  恢复stash，不删除stash中内容，使用git stash drop删除
+	git stash apply
+	git stash drop
+  恢复stash，删除stash内容
+	git stash pop
+
+9）多人协作的工作模式
+  首先，可以试图用git push origin branch-name推送自己的修改；
+
+  如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
+
+  如果合并有冲突，则解决冲突，并在本地提交；
+
+  没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
+
+  如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，
+  用命令git branch --set-upstream branch-name origin/branch-name
+
+  查看远程库信息，使用git remote -v；
+
+  本地新建的分支如果不推送到远程，对其他人就是不可见的；
+
+  从本地推送分支，使用git push origin branch-name，如果推送失败，先用git pull抓取远程的新提交；
+
+  在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致；
+
+  建立本地分支和远程分支的关联，使用git branch --set-upstream branch-name origin/branch-name；
+
+  从远程抓取分支，使用git pull，如果有冲突，要先处理冲突。
