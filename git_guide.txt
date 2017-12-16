@@ -1,0 +1,34 @@
+This a simple guide about how to use Git
+
+1) 版本穿梭
+	git reset —hard commid_id
+  HEAD 指向当前版本 HEAD^指向上一个版本
+	
+2) 查看状态
+  查看工作区状态
+	git status
+  查看命令历史
+	git log
+  查看提交历史
+	git reflog
+  查看区别
+	git diff
+
+3) 丢弃内容
+  场景1:丢弃工作区的修改
+	git checkout —- file
+  场景2:添加到暂存区后，想丢弃修改，第一步
+	git reset HEAD file
+    回到场景1，然后执行场景1的操作
+  场景3:已经提交到版本库，考虑版本回退
+
+4) 删除文件
+  删除文件管理器中的文件
+	rm filename
+  a)删除版本库中的文件
+	git rm filename
+  	git commit -m “context”
+  b)删除错文件管理器中文件，从版本库恢复
+	git checkout — filename
+
+  
