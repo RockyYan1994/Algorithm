@@ -31,4 +31,14 @@ This a simple guide about how to use Git
   b)删除错文件管理器中文件，从版本库恢复
 	git checkout — filename
 
-  
+5) 连接远程库(from local)
+  关联远程库
+	git remote add 远程库名 git@server-name:pat/repo-name.git
+  第一次关联push
+	git push -u 远程库名 master
+  之后推送
+	git push origin master 
+
+6) 连接远程库(from remote)
+  克隆一个库
+	git clone git@server-name:pat/repo-name.git
