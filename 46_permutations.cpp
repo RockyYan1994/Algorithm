@@ -1,7 +1,7 @@
 /*
 	first
-	首先想到用一个对应的数组，实现permutation，然后通过每次输出和该数组顺序相同的nums的数组就是当前序列结果，然后push到结果中，但是permutation数组没
-	实现。。
+	首先想到用一个对应的数组，实现permutation，然后通过每次输出和该数组顺序相同的nums的数组就是当前序列结果，然后push到结果中，
+	但是permutation数组没实现。。
 	之前自己没想出来backtracking的实现方法，查看了discussion之后，发现有多种backtracking的实现方法，version2选择了其中一种逻辑简单的方法。
 	还能直接调用next_permutation来实现。
 */
